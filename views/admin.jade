@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  if incidents.length > 0
+    form(action="" method="POST")
+      ul.list-group
+        each incident in incidents
+          li.list-group-item
+
+            .media
+              .media-left
+                input(type="checkbox" name="incidents" value="#{incident.id}")
+              .media-body #{moment(incident.date).calendar()} 
+                strong #{incident.email}
+
+            .well #{incident.message}
+      
+      button.btn.btn-default(type="submit" value="resolve" name="action") Resolve
+  
+  if incidents.length === 0
+    .alert.alert-success yay! no incidents.

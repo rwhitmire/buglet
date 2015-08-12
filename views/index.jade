@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  form(action="" method="POST")
+    .form-group
+      label(for="email") Email
+      input.form-control(type="email" name="email")
+    .form-group
+      label(for="message") Message
+      textarea.form-control(name="message")
+    .form-group
+      button.btn.btn-success(type="submit") Submit
